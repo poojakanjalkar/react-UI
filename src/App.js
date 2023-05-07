@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import React from 'react';
-import { Button, Table, QRCode} from 'antd';
+import { Button, Table, QRCode,Form, Input} from 'antd';
 function App() {
 
   let data=["pooja","pavan","Priya","arya"]
@@ -50,6 +50,22 @@ function App() {
        {/* // {data.map(elm=>{
           return <p>{elm}</p>
         })} */} 
+        <Form
+        name="basic">
+         <Form.Item
+         label="username"
+         name="username"
+         rules={[{required:true, message:"Please input your username!"}]}>
+          <Input />
+         </Form.Item>
+         <Form.Item
+         label="password"
+         name="password"
+         rules={[{ required: true, message: 'Please input your password!' }]}
+         >
+          <Input.Password></Input.Password>
+         </Form.Item>
+        </Form>
         <QRCode value="https://ant.design/"></QRCode>
         <Button type="primary" onClick={()=>{test()}}>Press Me</Button>
         <Table dataSource={dataSource} columns={columns} />;
